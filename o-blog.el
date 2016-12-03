@@ -29,8 +29,8 @@
 (require 'dired-sync nil t)
 (require 'find-func nil t)
 
-(mapcar (lambda (x) (require (intern (format "o-blog-%s" x)) nil t))
-	'("alert" "copy-files" "source" "grid" "i18n" "bootstrap"))
+(mapc (lambda (x) (require (intern (format "o-blog-%s" x)) nil t))
+      '("alert" "copy-files" "source" "grid" "i18n"))
 
 
 
@@ -72,7 +72,7 @@ This is a good place for o-blog parser plugins."
 
 
 
-(defstruct (ob:blog :named)
+(cl-defstruct (ob:blog :named)
   "Blog structure
 
  - file: the blog source file (read-only).
@@ -137,8 +137,8 @@ This is a good place for o-blog parser plugins."
    the post html filename in output directory. Defined by
    \"#+POSTS_HTMLFILE:\" or \"ob-set-default-htmlfile\".
 "
-  (file nil :read-only)
-  (buffer nil :read-only)
+  (file nil :read-only t)
+  (buffer nil :read-only t)
   publish-dir
   template-dir
   style-dir
