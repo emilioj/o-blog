@@ -77,14 +77,14 @@ This directive might be rendered something like this:
 
 In an HTML context, previous directive would be expanded as:
 
-#+BEGIN_HTML
+#+BEGIN_EXPORT html
 <div class=\"alert alert-type\">
 <p class=\"alert-heading\">Title</p>
-#+END_HTML
+#+END_EXPORT
 Some text inside the alert
-#+BEGIN_HTML
+#+BEGIN_EXPORT html
 <div>
-#+END_HTML
+#+END_EXPORT
 
 The default replacement text could be changed using variables
 `o-blog-alert-header', `o-blog-alert-footer' and
@@ -98,11 +98,11 @@ The default replacement text could be changed using variables
 		 (admo-title (match-string 2)))
 	    (beginning-of-line)
 	    (insert
-	     "#+BEGIN_HTML\n"
+	     "#+BEGIN_EXPORT html\n"
 	     (format o-blog-alert-header admo-type)
-	     (when admo-title 
+	     (when admo-title
 	       (format o-blog-alert-title admo-title))
-	     "\n#+END_HTML\n")
+	     "\n#+END_EXPORT\n")
 	    (delete-region (point) (point-at-eol))
 	    (unless
 		(re-search-forward "^#\\+END_O_BLOG_ALERT" nil t)
@@ -110,9 +110,9 @@ The default replacement text could be changed using variables
 		     (point)))
 	    (beginning-of-line)
 	    (insert
-	     "\n#+BEGIN_HTML\n"
+	     "\n#+BEGIN_EXPORT html\n"
 	     o-blog-alert-footer
-	     "\n#+END_HTML\n")
+	     "\n#+END_EXPORT\n")
 	    (delete-region (point) (point-at-eol))))))))
 (add-to-list
  'org-structure-template-alist

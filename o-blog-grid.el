@@ -78,13 +78,13 @@ The default replacement text could be changed using variables
 			   (split-string (match-string-no-properties 1)))))
 		       
 	      (insert
-	       "#+BEGIN_HTML\n"
+	       "#+BEGIN_EXPORT html\n"
 	       (format o-blog-grid-header
 		       (or (nth 2 args) "")
 		       (o-blog-grig-compute-args
 			      (nth 0 args)
 			      (nth 1 args)))
-	       "\n#+END_HTML\n")
+	       "\n#+END_EXPORT\n")
 	      (delete-region (point) (point-at-eol))
 
 	      (save-excursion
@@ -94,9 +94,9 @@ The default replacement text could be changed using variables
 			 (point)))
 		(beginning-of-line)
 		(insert
-		 "\n#+BEGIN_HTML\n"
+		 "\n#+BEGIN_EXPORT html\n"
 		 o-blog-grid-footer
-		 "\n#+END_HTML\n")
+		 "\n#+END_EXPORT\n")
 		(delete-region (point) (point-at-eol))
 		(setq end (point)))
 
@@ -108,12 +108,12 @@ The default replacement text could be changed using variables
 		  (goto-char (point-at-bol))
 
 		  (insert
-		   "#+BEGIN_HTML\n"
+		   "#+BEGIN_EXPORT html\n"
 		   (format o-blog-grid-column
 			   (o-blog-grig-compute-args
 			    (match-string 1)
 			    (match-string 2)))
-		   "\n#+END_HTML\n")
+		   "\n#+END_EXPORT\n")
 
 		  (delete-region (point) (point-at-eol)))))
 

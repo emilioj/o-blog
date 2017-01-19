@@ -49,17 +49,17 @@ A source file is defined using:
 
 and is converted to 
 
-    #+BEGIN_HTML
+    #+BEGIN_EXPORT html
     <div class=\"o-blog-source\">
     <div class=\"title\">file</div>
     <div style=\"display:none;\" class=\"content\">
-    #+END_HTML
+    #+END_EXPORT
     #+BEGIN_SRC mode
     (file content)
     #+END_SRC
-    #+BEGIN_HTML
+    #+BEGIN_EXPORT html
     </div></div>
-    #+END_HTML
+    #+END_EXPORT
 
 The default replacement text could be changed using variables
 `o-blog-source-header' and `o-blog-source-footer'."
@@ -79,7 +79,7 @@ The default replacement text could be changed using variables
 	    (delete-region (point) (point-at-eol))
 
 	    (insert
-	     "#+BEGIN_HTML\n"
+	     "#+BEGIN_EXPORT html\n"
 	     (format o-blog-source-header
 		     src-file-safe src-file-name src-file-safe
 		     src-file-name)
@@ -100,7 +100,7 @@ The default replacement text could be changed using variables
 	       (font-lock-fontify-buffer)
 	       (htmlize-region-for-paste (point-min) (point-max)))
 	     o-blog-source-footer
-	     "\n#+END_HTML\n")))))))
+	     "\n#+END_EXPORT\n")))))))
 
 (add-to-list
  'org-structure-template-alist

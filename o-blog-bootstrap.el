@@ -119,11 +119,11 @@ Look, I'm in a well!
 
 The html result looks like:
 
-#+BEGIN_HTML
+#+BEGIN_EXPORT html
 <div class=\"well\">
 Look, I'm in a well!
 </div>
-#+END_HTML"
+#+END_EXPORT"
 
   (save-match-data
     (save-excursion
@@ -132,9 +132,9 @@ Look, I'm in a well!
 	(while (re-search-forward "^#\\+BEGIN_O_BLOG_WELL" nil t)
 	  (beginning-of-line)
 	  (insert
-	   "#+BEGIN_HTML\n"
+	   "#+BEGIN_EXPORT html\n"
 	   "<div class=\"well\">\n"
-	   "\n#+END_HTML\n")
+	   "\n#+END_EXPORT\n")
 	  (delete-region (point) (point-at-eol))
 	  (unless
 	      (re-search-forward "^#\\+END_O_BLOG_WELL" nil t)
@@ -142,9 +142,9 @@ Look, I'm in a well!
 		   (point)))
 	  (beginning-of-line)
 	  (insert
-	   "\n#+BEGIN_HTML\n"
+	   "\n#+BEGIN_EXPORT html\n"
 	   "</div>\n"
-	   "\n#+END_HTML\n")
+	   "\n#+END_EXPORT\n")
 	  (delete-region (point) (point-at-eol)))))))
 (add-to-list
  'org-structure-template-alist
@@ -163,11 +163,11 @@ I am a hero unit!
 
 Would be converted to
 
-#+BEGIN_HTML
+#+BEGIN_EXPORT html
 <div class=\"hero-unit\">
 I am a hero unit!
 </div>
-#+END_HTML"
+#+END_EXPORT"
   (save-match-data
     (save-excursion
       (goto-char (point-min))
@@ -175,9 +175,9 @@ I am a hero unit!
 	(while (re-search-forward "^#\\+BEGIN_O_BLOG_HERO_UNIT" nil t)
 	  (beginning-of-line)
 	  (insert
-	   "#+BEGIN_HTML\n"
+	   "#+BEGIN_EXPORT html\n"
 	   "<div class=\"hero-unit\">\n"
-	   "\n#+END_HTML\n")
+	   "\n#+END_EXPORT\n")
 	  (delete-region (point) (point-at-eol))
 	  (unless
 	      (re-search-forward "^#\\+END_O_BLOG_HERO_UNIT" nil t)
@@ -185,9 +185,9 @@ I am a hero unit!
 		   (point)))
 	  (beginning-of-line)
 	  (insert
-	   "\n#+BEGIN_HTML\n"
+	   "\n#+BEGIN_EXPORT html\n"
 	   "</div>\n"
-	   "\n#+END_HTML\n")
+	   "\n#+END_EXPORT\n")
 	  (delete-region (point) (point-at-eol)))))))
 (add-to-list
  'org-structure-template-alist
@@ -205,11 +205,11 @@ I am a page header!
 
 Would be converted to
 
-#+BEGIN_HTML
+#+BEGIN_EXPORT html
 <div class=\"page-header\">
 I am a page header!
 </div>
-#+END_HTML"
+#+END_EXPORT"
   (save-match-data
     (save-excursion
       (goto-char (point-min))
@@ -217,9 +217,9 @@ I am a page header!
 	(while (re-search-forward "^#\\+BEGIN_O_BLOG_PAGE_HEADER" nil t)
 	  (beginning-of-line)
 	  (insert
-	   "#+BEGIN_HTML\n"
+	   "#+BEGIN_EXPORT html\n"
 	   "<div class=\"page-header\">\n"
-	   "\n#+END_HTML\n")
+	   "\n#+END_EXPORT\n")
 	  (delete-region (point) (point-at-eol))
 	  (unless
 	      (re-search-forward "^#\\+END_O_BLOG_PAGE_HEADER" nil t)
@@ -227,9 +227,9 @@ I am a page header!
 		   (point)))
 	  (beginning-of-line)
 	  (insert
-	   "\n#+BEGIN_HTML\n"
+	   "\n#+BEGIN_EXPORT html\n"
 	   "</div>\n"
-	   "\n#+END_HTML\n")
+	   "\n#+END_EXPORT\n")
 	  (delete-region (point) (point-at-eol)))))))
 (add-to-list
  'org-structure-template-alist
