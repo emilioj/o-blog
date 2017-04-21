@@ -725,7 +725,8 @@ headers and body."
 		  (ignore-errors (org-export-as-html nil nil nil 'string t))
 		  (ignore-errors (org-export-as-html nil nil 'string t))
 		  (ignore-errors (org-export-as 'html nil nil t nil))
-		  (org-export-as-html nil nil 'string nil nil))))
+		  (ignore-errors org-export-as-html nil nil 'string nil nil)
+		  (org-html-export-as-html nil nil 'string nil nil))))
       (when saved-file
 	(delete-file saved-file))
       ret)))
